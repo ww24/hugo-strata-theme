@@ -17,6 +17,7 @@
 		{{ if not .Site.Params.OpenGraph.hide }}
 		<meta name="og:site_name" content="{{ .Site.Title }}">
 		<meta name="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+		<meta name="og:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Description }}{{ end }}">
 		<meta name="og:url" content="{{ .Permalink }}">
 		{{ if $.Param "cover" }}
 		<meta name="og:image" content="{{ .Site.BaseURL }}images/{{ $.Param "cover" }}">
@@ -32,7 +33,7 @@
 		<meta name="twitter:card" content="summary">
 		{{ end }}
 		<meta name="twitter:title" content="{{ .Title }}">
-		<meta name="twitter:description" content="{{ .Site.Params.description }}">
+		<meta name="twitter:description" content="{{ if .IsHome }}{{ $.Site.Params.description }}{{ else }}{{ .Summary }}{{ end }}">
 		<meta name="twitter:url" content="{{ .Permalink }}">
 		<meta name="twitter:site" content="@{{ .Site.Params.sidebar.twitter }}">
 		{{ end }}
