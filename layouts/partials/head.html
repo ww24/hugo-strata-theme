@@ -12,10 +12,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		{{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
 		{{ with .Site.LanguageCode }}<meta http-equiv="content-language" content="{{ . }}" />{{ end }}
-
 		{{ if .IsHome }}
 			{{ $.Scratch.Set "description" $.Site.Params.description }}
-		{{ else if ne .Description $.Site.Params.description }}
+		{{ else if .Description }}
 			{{ $.Scratch.Set "description" .Description }}
 		{{ else }}
 			{{ $.Scratch.Set "description" .Summary }}
