@@ -4,13 +4,10 @@
     {{ end }}
 
 	<div class="row">
-        <br>
-        <p>
         <ol class="recent-posts">
         {{ range first 5 (where $.Site.RegularPages "Section" "post") }}
             <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
         {{ end }}
         </ol>
-        </p>
 	</div>
 </section>
